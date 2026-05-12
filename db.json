@@ -1,46 +1,75 @@
 {
   "plants": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Aloe",
       "image": "./images/aloe.jpg",
       "price": 15.99
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "ZZ Plant",
       "image": "./images/zz-plant.jpg",
       "price": 25.98
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Pilea peperomioides",
       "image": "./images/pilea.jpg",
       "price": 5.99
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Pothos",
       "image": "./images/pothos.jpg",
       "price": 12.11
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Jade",
       "image": "./images/jade.jpg",
       "price": 10.37
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
       "price": 25.99
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Monstera Deliciosa",
+      "image": "[https://www.thesill.com/blogs/plants-101/how-to-care-for-monstera-deliciosa-monsteras?srsltid=AfmBOoqwLGfU3hP2R4vFJd9iJ7Y0nR9nQK1Yv7p6nKj3z0zqM1xv2z3D](https://www.thesill.com/blogs/plants-101/how-to-care-for-monstera-deliciosa-monsteras?srsltid=AfmBOoqwLGfU3hP2R4vFJd9iJ7Y0nR9nQK1Yv7p6nKj3z0zqM1xv2z3D)",
+      "price": "40$",
+      "inStock": true,
+      "id": "jugmKL-uv2Q"
+    },
+    {
+      "name": "JJ",
+      "image": "https://www.thesill.com/blogs/plants-101/how-to-care-for-monstera-deliciosa-monsteras?",
+      "price": "35$",
+      "inStock": true,
+      "id": "mBFz85K_BEo"
+    },
+    {
+      "name": "Snake Plant",
+      "image": "https://images.unsplash.com/photo-1593691509543-c55fb32e5e3c",
+      "price": "20$",
+      "inStock": true,
+      "id": "F4c01UAzw4M"
+    },
+    {
+      "name": "Gertens",
+      "image": "https://www.google.com/imgres?q=splash%20plants&imgurl=https%3A%2F%2Fwww.gertens.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2F552aa5ee50ba4e27dfcb5fa3e4dca5ac%2Fh%2Fy%2Fhypoestes-splash-polka-dot-red-and-white-4in.jpg&imgrefurl=https%3A%2F%2Fwww.gertens.com%2Fhypoestes-splash-polka-dot-assorted&docid=39AjqnwWsL8x0M&tbnid=CBm9ZCxKdSbtEM&vet=12ahUKEwjO4Mfa7bSUAxUk1gIHHUKgG-4QnPAOegQIFxAB..i&w=700&h=700&hcb=2&ved=2ahUKEwjO4Mfa7bSUAxUk1gIHHUKgG-4QnPAOegQIFxAB",
+      "price": "16$",
+      "inStock": true,
+      "id": "8eB4wzdlBjw"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
