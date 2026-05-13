@@ -11,13 +11,13 @@ function App() {
 
   // FETCH PLANTS ON PAGE LOAD
   useEffect(() => {
-    fetch("http://localhost:6001/plants")
-      .then((res) => res.json())
-      .then((data) => setPlants(data))
-      .catch((error) =>
-        console.log("Error fetching plants:", error)
-      );
-  }, []);
+  fetch("http://localhost:6001/plants")
+    .then((res) => res.json())
+    .then((data) => setPlants(data.plants))
+    .catch((error) =>
+      console.log("Error fetching plants:", error)
+    );
+}, []);
 
   // ADD NEW PLANT
   function handleAddPlant(newPlant) {
@@ -30,7 +30,7 @@ function App() {
     })
       .then((res) => res.json())
       .then((addedPlant) => {
-        setPlants([...plants, addedPlant]);
+        setPlants([...plants, { ...addedPlant, inStock: true }]);
       });
   }
 

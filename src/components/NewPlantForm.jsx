@@ -12,7 +12,7 @@ function NewPlantForm({ onAddPlant }) {
       name,
       image,
       price,
-      inStock: true,
+      
     };
 
     onAddPlant(newPlant);
