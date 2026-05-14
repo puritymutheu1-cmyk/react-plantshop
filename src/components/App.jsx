@@ -1,40 +1,40 @@
 import { useEffect, useState } from "react";
-import Header from "./Header";
-import Search from "./Search";
-import PlantList from "./PlantList";
 import NewPlantForm from "./NewPlantForm";
+import PlantList from "./PlantList";
+import Search from "./Search";
 
 function App() {
-  // STATE
   const [plants, setPlants] = useState([]);
   const [search, setSearch] = useState("");
 
-  // FETCH PLANTS ON PAGE LOAD
+  // TASK 1: Fetch all plants on page load
   useEffect(() => {
-  fetch("http://localhost:6001/plants")
-    .then((res) => res.json())
-    .then((data) => setPlants(data.plants))
-    .catch((error) =>
-      console.log("Error fetching plants:", error)
-    );
-}, []);
+    fetch("http://localhost:6001/plants")
+      .then((res) => res.json())
+      .then((data) => setPlants(data))
+      .catch((error) => console.log("Error fetching plants:", error));
+  }, []);
 
-  // ADD NEW PLANT
+  // TASK 2: Add new plant via POST
   function handleAddPlant(newPlant) {
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPlant),
+      body: JSON.stringify({
+        name: newPlant.name,
+        image: newPlant.image,
+        price: newPlant.price,
+      }),
     })
       .then((res) => res.json())
       .then((addedPlant) => {
-        setPlants([...plants, { ...addedPlant, inStock: true }]);
+        setPlants([...plants, addedPlant]);
       });
   }
 
-  // TOGGLE SOLD OUT
+  // TASK 3: Toggle sold out (non-persisting)
   function handleSoldOut(id) {
     const updatedPlants = plants.map((plant) =>
       plant.id === id
@@ -45,39 +45,28 @@ function App() {
     setPlants(updatedPlants);
   }
 
-  // SEARCH FILTER
+  // TASK 4: Filter plants by search query
   const filteredPlants = plants.filter((plant) =>
-    plant.name
-      .toLowerCase()
-      .includes(search.toLowerCase())
+    plant.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div className="min-h-screen bg-green-50">
+      <header className="bg-green-700 text-white p-5 shadow-md">
+        <h1 className="text-2xl font-bold text-center">
+          🌿 Plant Shop
+        </h1>
+      </header>
 
-      {/* HEADER */}
-      <Header />
-
-      {/* MAIN CONTAINER */}
       <div className="max-w-6xl mx-auto p-6">
+        <Search search={search} setSearch={setSearch} />
 
-        {/* SEARCH BAR */}
-        <Search
-          search={search}
-          setSearch={setSearch}
-        />
+        <NewPlantForm onAddPlant={handleAddPlant} />
 
-        {/* FORM */}
-        <NewPlantForm
-          onAddPlant={handleAddPlant}
-        />
-
-        {/* PLANTS */}
         <PlantList
           plants={filteredPlants}
           onSoldOut={handleSoldOut}
         />
-
       </div>
     </div>
   );
