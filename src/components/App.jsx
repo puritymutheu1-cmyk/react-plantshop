@@ -30,7 +30,7 @@ function App() {
     })
       .then((res) => res.json())
       .then((addedPlant) => {
-        setPlants([...plants, addedPlant]);
+        setPlants((prev) => [...prev, addedPlant])
       });
   }
 
